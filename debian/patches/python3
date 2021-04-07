@@ -1,0 +1,41 @@
+Description: use python3
+Author: Emanuele Rocca <ema@debian.org>
+Bug-Debian: https://bugs.debian.org/857973
+Last-Update: 2019-07-29
+
+Index: dstat/dstat
+===================================================================
+--- dstat.orig/dstat
++++ dstat/dstat
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ ### This program is free software; you can redistribute it and/or
+ ### modify it under the terms of the GNU General Public License
+Index: dstat/plugins/dstat_mysql_keys.py
+===================================================================
+--- dstat.orig/plugins/dstat_mysql_keys.py
++++ dstat/plugins/dstat_mysql_keys.py
+@@ -38,7 +38,7 @@ class dstat_plugin(dstat):
+             for name in self.vars: self.val[name] = -1
+ 
+         except Exception as e:
+-            if op.debug > 1: print('%s: exception' (self.filename, e))
++            if op.debug > 1: print('%s: exception: %s' % (self.filename, e))
+             for name in self.vars: self.val[name] = -1
+ 
+ # vim:ts=4:sw=4:et
+Index: dstat/plugins/dstat_squid.py
+===================================================================
+--- dstat.orig/plugins/dstat_squid.py
++++ dstat/plugins/dstat_squid.py
+@@ -45,7 +45,7 @@ class dstat_plugin(dstat):
+             if op.debug > 1: print('%s: lost pipe to squidclient, %s' % (self.filename, e))
+             for name in self.vars: self.val[name] = -1
+         except Exception as e:
+-            if op.debug > 1: print('%s: exception' (self.filename, e))
++            if op.debug > 1: print('%s: exception: %s' % (self.filename, e))
+             for name in self.vars: self.val[name] = -1
+ 
+ # vim:ts=4:sw=4:et
